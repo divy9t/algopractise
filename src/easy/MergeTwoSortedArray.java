@@ -18,17 +18,13 @@ public class MergeTwoSortedArray {
         int q = n - 1;
         int r = m + n - 1;
 
-        while (p >= 0 || q >= 0) {
+        while (q >= 0) {
             if (p < 0) {
                 nums1[r] = nums2[q];
                 q--;
-            } else if (q < 0) {
-                nums1[r] = nums1[p];
-                p--;
             }
 
-            if (p > -1 && q > -1 ) {
-
+            if (p > -1) {
                 if (nums1[p] >= nums2[q]) {
                     nums1[r] = nums1[p];
                     p--;
