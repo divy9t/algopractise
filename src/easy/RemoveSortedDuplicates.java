@@ -10,7 +10,7 @@ public class RemoveSortedDuplicates {
 
     }
 
-    private static ListNode printLis(ListNode listNode) {
+    public static ListNode printLis(ListNode listNode) {
     ListNode currentNode = listNode;
 
     while (currentNode != null) {
