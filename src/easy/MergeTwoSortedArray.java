@@ -1,10 +1,6 @@
 package easy;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-import static easy.RemoveSortedDuplicates.printLis;
 
 public class MergeTwoSortedArray {
     public static void main(String[] args) {

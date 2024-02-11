@@ -1,7 +1,5 @@
 package easy.object;
 
-import easy.RemoveSortedDuplicates;
-
 public class ListNode {
     public int val;
     public ListNode next;
