@@ -1,4 +1,4 @@
-package easy;
+package easy.dynamicprogramming;
 
 public class DivisorGame {
     public static void main(String[] args) {
