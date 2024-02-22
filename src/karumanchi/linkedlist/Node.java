@@ -5,6 +5,7 @@ import easy.object.ListNode;
 public class Node {
     public int val;
     public Node next;
+    public Node prev;
 
     Node() {}
 
@@ -16,4 +17,47 @@ public class Node {
         this.val = val;
         this.next = next;
     }
+
+    public static Node getNode(int i) {
+        return new Node(i);
+    }
+    public static void printLinkedList(Node head) {
+        Node current = head;
+        System.out.print("Values:");
+        while (current != null) {
+            System.out.print(" "+current.val);
+            current = current.next;
+        }
+    }
+    public static void printForward(Node head) {
+        System.out.print("\nForward: ");
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.val + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public static void printBackward(Node tail) {
+        System.out.print("\nBackward: ");
+        Node current = tail;
+        while (current != null) {
+            System.out.print(current.val + " ");
+            current = current.prev;
+        }
+        System.out.println();
+    }
+    public static void printBackwardForward(Node head) {
+        System.out.print("\nForward: ");
+        Node tail = null ;
+        Node current = head;
+        while (current != null) {
+            tail = current;
+            System.out.print(current.val + " ");
+            current = current.next;
+        }
+        printBackward(tail);
+    }
+
 }

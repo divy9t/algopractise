@@ -1,10 +1,11 @@
-package karumanchi.linkedlist.single;
-
-import karumanchi.linkedlist.Node;
+package karumanchi.linkedlist;
 
 import java.util.Objects;
 
-public class Insert {
+import static karumanchi.linkedlist.Node.getNode;
+import static karumanchi.linkedlist.Node.printLinkedList;
+
+public class SingleLinkedList {
     public static void main(String[] args) {
         Node head = getNode(1);
         Node nodeTwo = getNode(2);
@@ -148,16 +149,5 @@ public class Insert {
         printLinkedList(nodeOne);
     }
 
-    private static Node getNode(int i) {
-        return new Node(i);
-    }
 
-    private static void printLinkedList(Node head) {
-        Node current = head;
-        System.out.print("Values:");
-        while (current != null) {
-            System.out.print(" "+current.val);
-            current = current.next;
-        }
-    }
 }
