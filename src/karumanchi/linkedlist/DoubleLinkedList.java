@@ -31,6 +31,87 @@ public class DoubleLinkedList {
         addDoubleLinkedListItemToFront(0, head);
         addDoubleLinkedListItemToList(6, head);
         addDoubleLinkedListItemToPosition(-4, 3, head);
+
+        //deletion
+        deleteItemFromFrontList(head);
+        deleteItemFromLastList(head);
+        deleteItemFromPositionList(3, head);
+    }
+
+    private static void deleteItemFromPositionList(int position, Node head) {
+        System.out.println("DELETING NODE FROM POSITION NODE");
+        printBackwardForward(head);
+        if (Objects.isNull(head))
+            return;
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node positionNode = head;
+        while ( position > 1 && positionNode.next != null) {
+            positionNode = positionNode.next;
+            position--;
+        }
+
+        if (positionNode.prev == null) {
+            deleteItemFromFrontList(head);
+            printBackwardForward(head);
+            return;
+        }
+
+        if (positionNode.next == null) {
+            deleteItemFromLastList(head);
+            printBackwardForward(head);
+            return;
+        }
+
+        positionNode.next = positionNode.next.next;
+        positionNode.next.prev = positionNode;
+        printBackwardForward(head);
+    }
+
+    private static void deleteItemFromLastList(Node head) {
+        System.out.println("DELETING NODE FROM LAST");
+        if (Objects.isNull(head))
+            return;
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node tail = head;
+        while (tail.next != null) {
+            tail = tail.next;
+        }
+
+        if (tail.prev == null)
+            return;
+
+        Node prev = tail.prev;
+        prev.next.prev = null;
+        prev.next = null;
+
+        printBackwardForward(head);
+
+    }
+
+    private static void deleteItemFromFrontList(Node head) {
+        System.out.println("DELETING NODE FROM FRONT");
+        if (Objects.isNull(head))
+            return;
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        head = head.next;
+        head.prev = null;
+        printBackwardForward(head);
+
     }
 
     private static void addDoubleLinkedListItemToPosition(int i, int position, Node head) {
