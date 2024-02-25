@@ -2,22 +2,11 @@ package karumanchi.linkedlist;
 
 import java.util.Objects;
 
-import static karumanchi.linkedlist.Node.getNode;
-import static karumanchi.linkedlist.Node.printLinkedList;
+import static karumanchi.linkedlist.Node.*;
 
 public class SingleLinkedList {
     public static void main(String[] args) {
-        Node head = getNode(1);
-        Node nodeTwo = getNode(2);
-        Node nodeThree = getNode(3);
-        Node nodeFour = getNode(4);
-        Node nodeFive = getNode(5);
-
-        head.next = nodeTwo;
-        nodeTwo.next = nodeThree;
-        nodeThree.next = nodeFour;
-        nodeFour.next = nodeFive;
-        nodeFive.next = null;
+        Node head = getSingleLinkedList();
 
         // Insertions
         performInsertion(head);
@@ -27,6 +16,7 @@ public class SingleLinkedList {
         reverseLinkedList(head);
 
     }
+
 
     private static void reverseLinkedList(Node head) {
 
