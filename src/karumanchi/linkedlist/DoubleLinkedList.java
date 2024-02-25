@@ -1,5 +1,6 @@
 package karumanchi.linkedlist;
 
+import java.util.Currency;
 import java.util.Objects;
 
 import static karumanchi.linkedlist.Node.*;
@@ -27,15 +28,18 @@ public class DoubleLinkedList {
 
         nodeFive.next = null;
 
-        //insertion
-        addDoubleLinkedListItemToFront(0, head);
-        addDoubleLinkedListItemToList(6, head);
-        addDoubleLinkedListItemToPosition(-4, 3, head);
 
-        //deletion
-        deleteItemFromFrontList(head);
-        deleteItemFromLastList(head);
-        deleteItemFromPositionList(3, head);
+        reverseTheLinkedList(head);
+
+        //insertion
+//        addDoubleLinkedListItemToFront(0, head);
+//        addDoubleLinkedListItemToList(6, head);
+//        addDoubleLinkedListItemToPosition(-4, 3, head);
+//
+//        //deletion
+//        deleteItemFromFrontList(head);
+//        deleteItemFromLastList(head);
+//        deleteItemFromPositionList(3, head);
     }
 
     private static void deleteItemFromPositionList(int position, Node head) {
@@ -168,5 +172,32 @@ public class DoubleLinkedList {
         printLinkedList(head);
     }
 
+    private static void reverseTheLinkedList(Node head) {
+        printForward(head);
+        if (head == null)
+            return;
+
+        if (head.next ==null)
+            return;
+
+
+        Node current = head;
+        Node prev = null;
+        Node next;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            current.prev = next;
+
+            prev = current;
+            current = next;
+        }
+
+        head = prev;
+
+        printBackwardForward(head);
+
+    }
 
 }

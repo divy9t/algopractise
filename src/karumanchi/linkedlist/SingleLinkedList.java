@@ -20,9 +20,9 @@ public class SingleLinkedList {
         nodeFive.next = null;
 
         // Insertions
-//        performInsertion(head);
-//        //Deletion
-//        performDeletion(head);
+        performInsertion(head);
+        //Deletion
+        performDeletion(head);
         //Reverse
         reverseLinkedList(head);
 
