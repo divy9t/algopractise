@@ -19,10 +19,6 @@ public class StackImplementation {
         System.out.println();
         System.out.println(stack.peek(head));
 
-
-
-
-
     }
 
     private int size (Node head) {
