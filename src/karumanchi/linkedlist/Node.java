@@ -76,4 +76,19 @@ public class Node {
         return head;
     }
 
+    public static Node getCyclicLinkedList() {
+        Node head = getNode(1);
+        Node nodeTwo = getNode(2);
+        Node nodeThree = getNode(3);
+        Node nodeFour = getNode(4);
+        Node nodeFive = getNode(5);
+
+        head.next = nodeTwo;
+        nodeTwo.next = nodeThree;
+        nodeThree.next = nodeFour;
+        nodeFour.next = nodeFive;
+        nodeFive.next = nodeThree;
+        return head;
+    }
+
 }
