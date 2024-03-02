@@ -9,16 +9,52 @@ import java.util.Objects;
 public class CyclicLinkedList {
     public static void main(String[] args) {
         Node cyclicLinkedList = Node.getCyclicLinkedList();
-        printResult(isLinkedListCyclic(cyclicLinkedList));
-        printResult(isLinkedListCyclic(Node.getSingleLinkedList()));
-        System.out.println(
-                "Cycle Start At: " + getTheStartOfCyclicNode(cyclicLinkedList).val
-        );
+//        printResult(isLinkedListCyclic(cyclicLinkedList));
+//        printResult(isLinkedListCyclic(Node.getSingleLinkedList()));
+//        System.out.println(
+//                "Cycle Start At: " + getTheStartOfCyclicNode(cyclicLinkedList).val
+//        );
+
+        CyclicLinkedListVisualization.printCyclicLinkedList(cyclicLinkedList);
         System.out.println(findLoopLength(cyclicLinkedList));
+        System.out.println(findLoopLengthOptimized(cyclicLinkedList));
+    }
+
+    private static Integer findLoopLengthOptimized(Node cyclicLinkedList) {
+        if (Objects.isNull(cyclicLinkedList))
+            return null;
+
+        Node turtle = cyclicLinkedList;
+        Node rabbit = cyclicLinkedList;
+        boolean loopExists = false;
+
+        while (turtle != null && rabbit != null) {
+            turtle = turtle.next;
+            rabbit = rabbit.next.next;
+            if (turtle == rabbit) {
+                loopExists=true;
+                break;
+            }
+        }
+
+        if (!loopExists )
+            return null;
+
+        if (rabbit == null || rabbit.next == null)
+            return null;
+
+
+        turtle = rabbit.next;
+        int loopLength = 0;
+        while (turtle != rabbit) {
+            loopLength += 1;
+            turtle = turtle.next;
+        }
+
+        return loopLength;
     }
 
     private static Integer findLoopLength(Node cyclicLinkedList) {
-        CyclicLinkedListVisualization.printCyclicLinkedList(cyclicLinkedList);
         if (Objects.isNull(cyclicLinkedList))
             return null;
 
