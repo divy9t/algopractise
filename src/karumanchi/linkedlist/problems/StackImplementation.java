@@ -21,7 +21,7 @@ public class StackImplementation {
 
     }
 
-    private int size (Node head) {
+    public int size (Node head) {
         int size = 1;
         if (Objects.isNull(head))
             return size;
@@ -32,10 +32,10 @@ public class StackImplementation {
         }
         return size;
     }
-    private boolean isEmpty (Node head) {
+    public boolean isEmpty (Node head) {
         return Objects.isNull(head);
     }
-    private Node push(int value, Node head) {
+    public Node push(int value, Node head) {
         Node node = Node.getNode(value);
         if (isEmpty(head))
             head = node;
@@ -43,10 +43,10 @@ public class StackImplementation {
         node.next = head;
         return node;
     }
-    private Node pop(Node head) {
+    public Node pop(Node head) {
         return head.next;
     }
-    private Integer peek(Node head) {
+    public Integer peek(Node head) {
         return head.val;
     }
 }
