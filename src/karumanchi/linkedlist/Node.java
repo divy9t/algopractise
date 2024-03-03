@@ -30,6 +30,16 @@ public class Node {
             current = current.next;
         }
     }
+    public static void circularLinkedList(Node head) {
+        Node current = head;
+        System.out.print("Values:");
+        while (current != null) {
+            System.out.print(" "+current.val);
+            current = current.next;
+            if (current == head)
+                break;
+        }
+    }
     public static void printForward(Node head) {
         System.out.print("\nForward: ");
         Node current = head;
@@ -89,6 +99,23 @@ public class Node {
         nodeThree.next = nodeFour;
         nodeFour.next = nodeFive;
         nodeFive.next = nodeThree;
+        return head;
+    }
+
+    public static Node getCircularLinkedList() {
+        Node head = getNode(1);
+        Node nodeTwo = getNode(2);
+        Node nodeThree = getNode(3);
+        Node nodeFour = getNode(4);
+        Node nodeFive = getNode(5);
+        Node nodeSix = getNode(6);
+
+        head.next = nodeTwo;
+        nodeTwo.next = nodeThree;
+        nodeThree.next = nodeFour;
+        nodeFour.next = nodeFive;
+        nodeFive.next = nodeSix;
+        nodeSix.next = head;
         return head;
     }
 
