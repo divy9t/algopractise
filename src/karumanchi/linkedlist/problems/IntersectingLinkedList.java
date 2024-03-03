@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Objects;
 
 import static karumanchi.linkedlist.Node.getNode;
-import static karumanchi.linkedlist.Node.printLinkedList;
 
 public class IntersectingLinkedList {
     public static void main(String[] args) {
@@ -30,18 +29,16 @@ public class IntersectingLinkedList {
         head.next = nodeTwo;
         nodeTwo.next = nodeThree;
         nodeThree.next = nodeNine;
-
         nodeFour.next = nodeFive;
         nodeFive.next = nodeSix;
         nodeSix.next = nodeSeven;
         nodeSeven.next = nodeEight;
         nodeEight.next = nodeNine;
-
         nodeNine.next = nodeTen;
         nodeTen.next = nodeEleven;
 
-//        extracted(findIntersectingNodesByBruteForce(head, nodeFour));
-//        extracted(findInterSectionUsingStack(head, nodeFour));
+        extracted(findIntersectingNodesByBruteForce(head, nodeFour));
+        extracted(findInterSectionUsingStack(head, nodeFour));
         extracted(findInterSectionWithMostOptimizedSolution(head, nodeFour));
 
     }
