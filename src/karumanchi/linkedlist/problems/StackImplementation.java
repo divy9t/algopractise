@@ -33,7 +33,7 @@ public class StackImplementation {
         return size;
     }
     public boolean isEmpty (Node head) {
-        return Objects.isNull(head);
+        return Objects.isNull(head) || Objects.isNull(head.val);
     }
     public Node push(int value, Node head) {
         Node node = Node.getNode(value);
