@@ -38,4 +38,7 @@ public class StackStringImplementation {
     public String peek(StringNode head) {
         return head.val;
     }
+    public StringNode push(char value, StringNode head) {
+        return push(String.valueOf(value), head);
+    }
 }
