@@ -2,12 +2,12 @@ package karumanchi.stacks;
 
 import karumanchi.Utils;
 
-public class InfixToPostfix {
+public class FixConversions {
 
     public static void main(String[] args) {
         String infix = "a*(b+c)-d/e";
+        System.out.println("Initial Expression: " + infix);
         System.out.println(infixToPostfix(infix));
-        System.out.println(infixToPrefix(infix));
     }
 
     private static String infixToPrefix(String infix) {
@@ -98,7 +98,53 @@ public class InfixToPostfix {
             stringBuilder.append(stackStringImplementation.peek(node));
             node = stackStringImplementation.pop(node);
         }
+        postFixToInfixManual(stringBuilder.toString());
         return stringBuilder.toString();
+    }
+
+    private static void postFixToInfixCoPilot(String string) {
+        StringBuilder stringBuilder = new StringBuilder();
+        StringNode node = new StringNode();
+        StackStringImplementation stackStringImplementation = new StackStringImplementation();
+
+
+        for (int i = 0; i<string.length(); i++) {
+            char character = string.charAt(i);
+            if (Character.isLetterOrDigit(character)) {
+                node = stackStringImplementation.push(character, node);
+            }
+            else {
+                String operand1 = stackStringImplementation.peek(node);
+                node = stackStringImplementation.pop(node);
+                String operand2 = stackStringImplementation.peek(node);
+                node = stackStringImplementation.pop(node);
+                stringBuilder.append("(").append(operand2).append(character).append(operand1).append(")");
+                node = stackStringImplementation.push(stringBuilder.toString(), node);
+                stringBuilder = new StringBuilder();
+            }
+        }
+
+        System.out.println(stringBuilder);
+
+    }
+    private static void postFixToInfixManual(String string) {
+        StringNode node = new StringNode();
+        StackStringImplementation stackStringImplementation = new StackStringImplementation();
+
+        for (int i=0; i < string.length(); i++) {
+            char character = string.charAt(i);
+
+            if (Character.isLetterOrDigit(character))
+                node = stackStringImplementation.push(character, node);
+            else {
+                String result = stackStringImplementation.peek(node);
+                node = stackStringImplementation.pop(node);
+                result  = "(" + result + character + stackStringImplementation.peek(node) + ")";
+                node = stackStringImplementation.pop(node);
+                node = stackStringImplementation.push(result, node);
+            }
+        }
+        System.out.println(node.val);
     }
 
 }
