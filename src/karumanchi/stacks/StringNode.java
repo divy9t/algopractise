@@ -1,5 +1,7 @@
 package karumanchi.stacks;
 
+import karumanchi.linkedlist.Node;
+
 public class StringNode {
     public String val;
     public StringNode next;
@@ -69,6 +71,20 @@ public class StringNode {
         printBackward(tail);
     }
 
+    public static StringNode getSingleLinkedList() {
+        StringNode head = getNode("1");
+        StringNode nodeTwo = getNode("2");
+        StringNode nodeThree = getNode("3");
+        StringNode nodeFour = getNode("4");
+        StringNode nodeFive = getNode("5");
+
+        head.next = nodeTwo;
+        nodeTwo.next = nodeThree;
+        nodeThree.next = nodeFour;
+        nodeFour.next = nodeFive;
+        nodeFive.next = null;
+        return head;
+    }
 
 
 }
