@@ -21,9 +21,10 @@ public class TwoStackImplementation {
 
 
         twoStacks.printStack();
+        System.out.println();
 
-        twoStacks.popStackTwo();
-        twoStacks.popStackOne();
+        System.out.println(twoStacks.popStackTwo());
+        System.out.println(twoStacks.popStackOne());
 
 
         twoStacks.printStack();
