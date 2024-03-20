@@ -18,6 +18,7 @@ public class LargestRectengleArea {
                 stack.push(i++);
             else {
                 int top = stack.pop();
+                System.out.println("Top: " + top + ", heights[top]: " + heights[top] + ", stackPeek: " + (!stack.isEmpty() ? (i - stack.peek() - 1) : ""));
                 int area = heights[top] * (stack.isEmpty() ? 1 : i - stack.peek() - 1);
                 maxArea = Math.max(maxArea, area);
             }
