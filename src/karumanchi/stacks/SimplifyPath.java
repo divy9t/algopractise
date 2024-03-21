@@ -6,7 +6,7 @@ import java.util.*;
 public class SimplifyPath {
 
     public static void main(String[] args) {
-
+//
         System.out.println(new SimplifyPath().simplifyPathPilot("/home/"));
         System.out.println(new SimplifyPath().simplifyPathPilot("/a//b////c/d//././/.."));
         System.out.println(new SimplifyPath().simplifyPathPilot("/a/./b/../../c/"));
@@ -55,18 +55,25 @@ public class SimplifyPath {
         return stringBuilder.toString().isEmpty() ? "/" : stringBuilder.toString();
     }
 
-    public String simplifyPathPilot(String path ) {
+
+    public String simplifyPathPilot(String path) {
         Stack<String> stack = new Stack<>();
-        for (String string : path.split("/")) {
+
+        //split into array for delimiter
+        for (String string: path.split("/")) {
+            //if empty then don't process
             if (!string.isEmpty()) {
+                //this means you need to empty the list if exit signal finds
                 if (string.equals("..")) {
+                    // we can empty the stack since we are moving from left to right
                     if (!stack.isEmpty()) stack.pop();
-                } else if (!string.equals(".")) {
-                    stack.push(string);
+                } else if (!string.equals(".")){
+                        stack.push(string);
                 }
             }
         }
         return "/" + String.join("/", stack);
     }
+
 
 }
