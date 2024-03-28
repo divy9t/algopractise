@@ -15,6 +15,13 @@ public class CircularQueueImplementation {
         this.rear = rear;
         this.capacity = capacity;
     }
+    public CircularQueueImplementation(int capacity) {
+        this.queue = new int[capacity];
+        this.size = 0;
+        this.front = 0;
+        this.rear = 0;
+        this.capacity = capacity;
+    }
 
     public void enqueue (int val) {
         if (isFull()) {
@@ -27,18 +34,18 @@ public class CircularQueueImplementation {
 
     }
     public int dequeue () {
-        if (isFull()) {
+        if (isEmpty()) {
             System.out.println("Underflow");
             return -1;
         }
         int data = queue[front];
-        front = (rear + 1) % capacity;
+        front = (front + 1) % capacity;
         size--;
         return data;
     }
 
     public int peek() {
-        if (isFull()) {
+        if (isEmpty()) {
             System.out.println("Underflow");
             return -1;
         }
@@ -51,5 +58,12 @@ public class CircularQueueImplementation {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    public void printQueue() {
+        System.out.println("\n-------------------");
+        for (int i = 0; i < size; i++) {
+            System.out.print(queue[(front + i) % capacity] + " ");
+        }
     }
 }
