@@ -14,6 +14,18 @@ public class StackQueueImplementation {
         System.out.println(stackQueueImplementation.dequeue());
         System.out.println(stackQueueImplementation.dequeue());
         System.out.println(stackQueueImplementation.dequeue());
+
+        System.out.println("\n-----------------------------\n");
+
+        QueueImplementationUsingOneStack queueImplementationUsingOneStack = new QueueImplementationUsingOneStack(new Stack<>());
+        queueImplementationUsingOneStack.enqueue(1);
+        queueImplementationUsingOneStack.enqueue(2);
+        queueImplementationUsingOneStack.enqueue(3);
+        queueImplementationUsingOneStack.enqueue(4);
+        queueImplementationUsingOneStack.enqueue(5);
+        System.out.println(queueImplementationUsingOneStack.dequeue());
+        System.out.println(queueImplementationUsingOneStack.dequeue());
+
     }
 
     public final Stack<Integer> enqueueStack;
@@ -37,4 +49,29 @@ public class StackQueueImplementation {
     }
 
 
+}
+
+class QueueImplementationUsingOneStack {
+
+    public final Stack<Integer> stack;
+
+    public QueueImplementationUsingOneStack(Stack<Integer> stack) {
+        this.stack = stack;
+    }
+
+    void enqueue (Integer val) {
+        stack.push(val);
+    }
+
+    Integer dequeue () {
+        if (stack.isEmpty())
+            return null;
+
+        Integer val = stack.pop();
+        if (stack.isEmpty())
+            return val;
+        Integer result = dequeue();
+        stack.push(val);
+        return result;
+    }
 }
