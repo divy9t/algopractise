@@ -6,19 +6,14 @@ public class Node {
     public Integer val;
     public Node next;
     public Node prev;
-
     public Node() {}
-
     public Node(int val) {
         this.val = val;
     }
-
-
     public Node(int val, Node next) {
         this.val = val;
         this.next = next;
     }
-
     public static Node getNode(int i) {
         return new Node(i);
     }
@@ -49,7 +44,6 @@ public class Node {
         }
         System.out.println();
     }
-
     public static void printBackward(Node tail) {
         System.out.print("\nBackward: ");
         Node current = tail;
@@ -70,8 +64,6 @@ public class Node {
         }
         printBackward(tail);
     }
-
-
     public static Node getSingleLinkedList() {
         Node head = getNode(1);
         Node nodeTwo = getNode(2);
@@ -86,7 +78,6 @@ public class Node {
         nodeFive.next = null;
         return head;
     }
-
     public static Node getCyclicLinkedList() {
         Node head = getNode(1);
         Node nodeTwo = getNode(2);
@@ -101,7 +92,6 @@ public class Node {
         nodeFive.next = nodeThree;
         return head;
     }
-
     public static Node getCircularLinkedList() {
         Node head = getNode(1);
         Node nodeTwo = getNode(2);
@@ -118,5 +108,4 @@ public class Node {
         nodeSix.next = head;
         return head;
     }
-
 }
