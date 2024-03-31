@@ -1,5 +1,8 @@
 package karumanchi.queue;
 
+import lombok.Getter;
+
+@Getter
 public class CircularQueueImplementation {
 
     private final int[] queue;
@@ -66,4 +69,5 @@ public class CircularQueueImplementation {
             System.out.print(queue[(front + i) % capacity] + " ");
         }
     }
+
 }
