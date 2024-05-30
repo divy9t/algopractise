@@ -6,10 +6,12 @@ import java.util.Queue;
 public class LongestSubString {
 
     public static void main(String[] args) {
-        System.out.println(getLongestSubString("pwwkew"));
+        System.out.println(getLongestSubString("c"));
     }
 
-    private static String getLongestSubString(String string) {
+    private static int getLongestSubString(String string) {
+        if (string.isEmpty()) return 0;
+        if (string.trim().isEmpty()) return 1;
         Queue<Character> queue = new LinkedList<>();
         String longestString = "";
 
@@ -23,6 +25,14 @@ public class LongestSubString {
             }
             queue.add(c);
         }
-        return longestString;
+        if (!queue.isEmpty()) {
+            StringBuilder tempString = new StringBuilder();
+            while (!queue.isEmpty())
+                tempString.append(queue.remove());
+            if (longestString.length() < tempString.length())
+                longestString = tempString.toString();
+        }
+
+        return longestString.length();
     }
 }
