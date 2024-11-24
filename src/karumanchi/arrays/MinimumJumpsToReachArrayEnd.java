@@ -11,12 +11,12 @@ public class MinimumJumpsToReachArrayEnd {
         if (arr.length < 0) return -1;
         if (arr[0] <= 0) return -1;
 
-        int jump = 0;
+        int jump = 1;
         int farthest = arr[0];
         int farthestIndex = arr[0];
 
         for (int i = 1; i < arr.length; i++) {
-            if (i == arr.length - 1) return -1;
+            if (i == arr.length - 1) return jump;
 
             farthest = Math.max(farthest, i + arr[i]);
 
@@ -27,5 +27,8 @@ public class MinimumJumpsToReachArrayEnd {
                 if (farthestIndex <= i) return -1;
             }
         }
+
+
+        return jump;
     }
 }
