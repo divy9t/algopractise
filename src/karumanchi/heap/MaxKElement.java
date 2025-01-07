@@ -63,32 +63,6 @@ public class MaxKElement {
             return heap[1];
         }
 
-        public int popCustom () {
-            if (realSize <= 0) {
-                throw new RuntimeException("Heap Empty!");
-            }
-
-            int removedElement = heap[1];
-            heap[1] = heap[realSize];
-            realSize--;
-            int parent = 1;
-
-            while (parent < realSize/2) {
-                int left = parent * 2;
-                int right = parent * 2 + 1;
-
-                if (heap[parent] > heap[left]) {
-                    parent = left;
-                } else if (heap[parent] > heap[right]) {
-                    parent = right;
-                } else {
-                    break;
-                }
-            }
-
-            return removedElement;
-
-        }
 
         public int pop() {
             if (realSize <= 0) {
