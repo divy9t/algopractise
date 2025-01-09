@@ -1,6 +1,7 @@
 package karumanchi.heap;
 
 import java.util.Collections;
+import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class LastStoneWeight {
@@ -20,7 +21,7 @@ public class LastStoneWeight {
             Integer firstStone = heap.poll();
             Integer secondStone = heap.poll();
 
-            if (firstStone != secondStone) {
+            if (!Objects.equals(firstStone, secondStone)) {
                 heap.add(firstStone - secondStone);
             }
         }
