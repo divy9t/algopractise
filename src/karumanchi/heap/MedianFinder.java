@@ -19,7 +19,7 @@ public class MedianFinder {
 
     public double findMedian() {
         List<Integer> list = new ArrayList<>();
-        Collection<Integer> integers = Collections.unmodifiableCollection(li=st);
+        Collection<Integer> integers = Collections.unmodifiableCollection(list);
         integers.add(1);
         map.put(1, 1);
         return 0;
