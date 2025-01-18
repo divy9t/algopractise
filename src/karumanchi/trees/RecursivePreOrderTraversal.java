@@ -9,7 +9,7 @@ public class RecursivePreOrderTraversal {
 
     private static void preOrderTraversal(TreeNode root) {
         if (root == null) return;
-        System.out.println("Root Element is: " + root.data);
+        System.out.println("Root Element is: " + root.val);
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }

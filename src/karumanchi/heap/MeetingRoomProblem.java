@@ -10,19 +10,25 @@ public class MeetingRoomProblem {
         System.out.println(minMeetingRooms(intervals));
     }
 
-    private static int minMeetingRooms(int[][] intervals) {
-        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+private static int minMeetingRooms(int[][] intervals) {
+    // Sort the intervals by start time
+    Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
 
-        PriorityQueue<Integer> heap = new PriorityQueue<>();
+    // Min-heap to keep track of end times of meetings
+    PriorityQueue<Integer> heap = new PriorityQueue<>();
 
-        for (int[] interval : intervals) {
-            if (!heap.isEmpty() && heap.peek() <= interval[0])
-                heap.poll();
+    // Iterate over all the intervals
+    for (int[] interval : intervals) {
+        // If the room due to free up the earliest is free, assign that room to this meeting
+        if (!heap.isEmpty() && heap.peek() <= interval[0])
+            heap.poll();
 
-            heap.add(interval[1]);
-        }
-
-        return heap.size();
+        // If a new room is to be assigned, then also we add to the heap
+        heap.add(interval[1]);
     }
+
+    // The size of the heap tells us the minimum rooms required for all the meetings
+    return heap.size();
+}
 
 }
