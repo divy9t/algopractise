@@ -21,4 +21,17 @@ public class TreeNode {
         this.right = right;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj instanceof TreeNode) {
+            TreeNode other = (TreeNode) obj;
+            return this.val == other.val &&
+                    (this.left == null ? other.left == null : this.left.equals(other.left)) &&
+                    (this.right == null ? other.right == null : this.right.equals(other.right));
+        }
+        return false;
+    }
 }
