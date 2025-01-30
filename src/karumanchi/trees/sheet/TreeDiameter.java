@@ -14,24 +14,21 @@ public class TreeDiameter {
         System.out.println(diameter);
     }
 
-    private int diameter(TreeNode root) {
-        getDiameter(root );
+    private double diameter(TreeNode root) {
+        getDiameter(root);
         return maxDia;
     }
 
     private int getDiameter(TreeNode root) {
-        if (root == null) {
-            return 0; // Base case: height of a null node is 0
-        }
+        if (root == null)
+            return 0;
+        int left = getDiameter(root.left);
+        int right = getDiameter(root.right);
 
-        // Calculate the height of left and right subtrees
-        int leftHeight = getDiameter(root.left);
-        int rightHeight = getDiameter(root.right);
+        maxDia = Math.max(maxDia, left + right);
 
-        // Update the maximum diameter
-        maxDia = Math.max(maxDia, leftHeight + rightHeight);
-
-        // Return the height of the current node
-        return Math.max(leftHeight, rightHeight) + 1;
+        return Math.max(left, right) + 1;
     }
+
+
 }
