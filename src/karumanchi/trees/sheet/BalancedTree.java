@@ -15,12 +15,26 @@ public class BalancedTree {
         root.right.left = new TreeNode(4);
         root.right.right = new TreeNode(25);
 
-        getTreeHeight(root);
+        isTreeBalanced(root);
+    }
+
+    private static boolean isTreeBalanced(TreeNode root) {
+        return getTreeHeight(root) != -1;
     }
 
     private static int getTreeHeight(TreeNode root) {
-        if
+        if (root == null)
+            return 0;
 
+        int left = getTreeHeight(root.left);
+        if (left == -1) return -1;
+        int right = getTreeHeight(root.right);
+        if (right == -1) return -1;
+
+
+        if ((Math.max(left, right) - Math.min(left, right)) > 1) return -1;
+
+        return Math.max(left, right) + 1;
 
     }
 
