@@ -5,6 +5,7 @@ import lombok.ToString;
 @ToString
 public class TreeNode {
     public int val;
+    public int horizontalDistance;
     public TreeNode left;
     public TreeNode right;
     public TreeNode next;
