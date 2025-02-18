@@ -8,15 +8,11 @@ public class string_tuf {
         stringTuf.reverseString(new Vector<Character>(Arrays.asList('h', 'e', 'l', 'l', 'o')));
         System.out.println(stringTuf.longestCommonPrefix(new String[]{"flowers", "flow", "fly", "flight"}));
         System.out.println(stringTuf.largeOddNum("0032579"));
-        System.out.println(stringTuf.largeOddNum("palindromeCheck"));
+        System.out.println(stringTuf.palindromeCheck("palindromeCheck"));
         System.out.println(stringTuf.isomorphicString("egg","add"));
         System.out.println(stringTuf.rotateString("abcde","cdeab"));
         System.out.println(stringTuf.anagramStrings("anagram","nagaram"));
         System.out.println(stringTuf.frequencySort("tree"));
-
-    }
-
-    public int NnumbersSum(int N) {
 
     }
 
