@@ -19,7 +19,7 @@ public class NthNodeFromLast {
         System.out.println(getNthNodeValueFromBack(1).val);
         System.out.println(getNthNodeValueFromBack(3).val);
 
-        //try to solve it in one scan
+        //try to solveViaMemoization it in one scan
         getNthNodeValueInOneScan(3, head);
 
     }
