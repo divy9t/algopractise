@@ -14,7 +14,6 @@ public class MinKSmallestElementInMatrix {
         System.out.println(kthSmallest(matrix, k));
 
     }
-
     private static int kthSmallest(int[][] matrix, int k) {
         PriorityQueue<Integer> heap = new PriorityQueue<>(Collections.reverseOrder());
 
